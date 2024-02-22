@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
-#print "Best School" 9 times and 1 Hi
+#print "Best School" 10 times and 1 Hi
 
-i=0
+i=1
 while [ $i -le 10 ]; do
-    ((i++));
+    echo Best School;
     if [ $i -eq 9 ]; then
         echo Hi;
-        continue;
     fi
-    echo Best School;
+    ((i++));
 done
