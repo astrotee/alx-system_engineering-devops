@@ -2,7 +2,7 @@
 # lock and trap
 
 function cleanexit() {
-    rm /var/run/myscript;
+    rm /var/run/myscript.pid;
     exit;
 }
 
