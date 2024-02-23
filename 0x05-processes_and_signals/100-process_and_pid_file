@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# lock and trap
+
+function cleanexit() {
+    rm /var/run/myscript;
+    exit;
+}
+
+echo $$ > /var/run/myscript.pid
+trap "echo I hate the kill command; cleanexit" SIGTERM
+trap "echo Y U no love me?!" SIGINT
+trap "cleanexit" SIGQUIT
+while true; do
+    echo To infinity and beyond;
+    sleep 2;
+done
+
