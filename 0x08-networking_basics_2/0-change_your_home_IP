@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#change hosts
+cp /etc/hosts hosts.old
+cat << EOF > /etc/hosts
+127.0.0.2   localhost
+8.8.8.8     facebook.com
+EOF
