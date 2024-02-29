@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#show IPs
+ifconfig | sed -n 's/.*inet \([^ ]*\).*/\1/p' | cat -e
