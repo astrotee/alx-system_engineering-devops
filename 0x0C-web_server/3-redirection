@@ -2,6 +2,7 @@
 # setup NGINX
 apt-get install nginx -y
 echo "Hello World!" > /var/www/html/index.html
+service nginx restart
 # add a redirection
 rule="\trewrite ^/redirect_me/?$ https://www.youtube.com/watch?v=Kob0G2hE8IY permanent;\n\n"
 sed -i "s|\(^\tlocation / {\)|$rule\1|" /etc/nginx/sites-enabled/default
