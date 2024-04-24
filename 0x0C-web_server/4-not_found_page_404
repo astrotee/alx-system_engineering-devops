@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# setup NGINX
+apt-get install nginx -y
+echo "Hello World!" > /var/www/html/index.html
+service nginx restart
+# add a redirection
+rule="\trewrite ^/redirect_me/?$ https://www.youtube.com/watch?v=Kob0G2hE8IY permanent;\n\n"
+sed -i "s|\(^\tlocation / {\)|$rule\1|" /etc/nginx/sites-enabled/default
+# add 404 page
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+sed -i "/server_name _;/a \\\\terror_page 404 /404.html;\n" /etc/nginx/sites-enabled/default
+service nginx reload
