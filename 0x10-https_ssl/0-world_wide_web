@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# get subdomain dns record
+
+main ()
+{
+    dig "$1"."$2" | grep -A1 'ANSWER SECTION:' | awk '(NR%2==0) {print "The subdomain '"$1"' is a", $4, "record and points to", $NF}'
+}
+
+[ $1 ] || exit 1
+
+if [ -z "$2" ]; then
+    main www "$1"
+    main lb-01 "$1"
+    main web-01 "$1"
+    main web-02 "$1"
+else
+    main "$2" "$1"
+fi
