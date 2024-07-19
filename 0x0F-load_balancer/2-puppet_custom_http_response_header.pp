@@ -3,8 +3,8 @@
 $haproxy_config = "
 backend web-backend
     balance roundrobin
-    server web-01 3.85.175.13:80 check
-    server web-02 54.237.33.168:80 check
+    server web-01 100.25.168.55:80 check
+    server web-02 3.84.237.58:80 check
 frontend http
     bind *:80
     mode http
