@@ -1,0 +1,5 @@
+sudo ufw default deny
+ufw allow OpenSSH
+ufw allow "Nginx Full"
+ufw enable
+
