@@ -1,5 +1,3 @@
 sudo ufw default deny
-ufw allow OpenSSH
-ufw allow "Nginx Full"
+ufw allow 22,80,80/tcp
 ufw enable
-
