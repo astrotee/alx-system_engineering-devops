@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# dump a backup of the database and archive it
+sudo mysqldump -u root -p > backup.sql
+tar czf $(date +%d-%m-%Y).tar.gz backup.sql
