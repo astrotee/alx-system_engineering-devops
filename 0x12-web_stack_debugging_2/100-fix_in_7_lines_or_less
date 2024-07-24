@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2046
+kill $(pidof apache2)
+chown -R nginx:nginx /var/log/nginx /etc/nginx
+chmod 640 /etc/nginx/nginx.conf
+sed -i -E '/^\s*listen/s/80/8080/' /etc/nginx/sites-enabled/default
+sudo -u nginx -- nginx
