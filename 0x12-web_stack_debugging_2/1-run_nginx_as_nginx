@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #run nginx as user nginx
-# shellcheck disable=SC2046
-kill $(pidof apache2)
+read -ra PIDs < <(pidof apache2)
+kill "${PIDs[@]}"
 sed -i -E '/^#?user .+$/a\
 user nginx;' /etc/nginx/nginx.conf
 sed -i -E '/^\s*listen/s/80/8080/' /etc/nginx/sites-enabled/default
