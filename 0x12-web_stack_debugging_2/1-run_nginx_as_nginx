@@ -2,7 +2,10 @@
 #run nginx as user nginx
 read -ra PIDs < <(pidof apache2)
 kill "${PIDs[@]}"
+chown -R nginx:nginx /etc/nginx
+chown -R nginx:nginx /var/log/nginx
+chown -R nginx:nginx /var/cache/nginx
 sed -i -E '/^#?user .+$/a\
 user nginx;' /etc/nginx/nginx.conf
 sed -i -E '/^\s*listen/s/80/8080/' /etc/nginx/sites-enabled/default
-service nginx start
+sudo -u nginx -- nginx
