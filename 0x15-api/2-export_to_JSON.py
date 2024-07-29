@@ -19,6 +19,7 @@ if __name__ == "__main__":
     tasks = list()
     d = {f"{id}": tasks}
     for todo in res:
-        tasks.append({"task": todo['title'], "completed": todo['completed'], "username": username})
+        tasks.append({"task": todo['title'], "completed": todo['completed'],
+                      "username": username})
     with open(f"{id}.json", 'w') as f:
         json.dump(d, f)
