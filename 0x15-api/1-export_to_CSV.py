@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """Export to CSV"""
-import sys
+import csv
 import requests as req
+import sys
 
 base_url = "https://jsonplaceholder.typicode.com"
 
@@ -15,5 +16,6 @@ if __name__ == "__main__":
     ntodos = len(res)
     ndone = 0
     with open(f"{id}.csv", 'w') as f:
+        csvw = csv.writer(f)
         for todo in res:
-            f.write(f'"{id}","{username}","{todo['completed']}","{todo['title']}"\n')
+            csvw.writerow([id, username, todo['completed'], todo['title']])
