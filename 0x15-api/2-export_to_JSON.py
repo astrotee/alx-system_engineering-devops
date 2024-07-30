@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """Export to CSV"""
 import json
-import sys
-
 import requests as req
+import sys
 
 base_url = "https://jsonplaceholder.typicode.com"
 

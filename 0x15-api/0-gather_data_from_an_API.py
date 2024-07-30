@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """Gather data from an API"""
-import sys
-
 import requests as req
+import sys
 
 base_url = "https://jsonplaceholder.typicode.com"
 
