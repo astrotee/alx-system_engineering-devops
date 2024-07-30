@@ -15,7 +15,7 @@ if __name__ == "__main__":
     res = res.json()
     ntodos = len(res)
     ndone = 0
-    with open(f"{id}.csv", 'w') as f:
-        csvw = csv.writer(f)
+    with open(f"{id}.csv", 'w', newline='') as f:
+        csvw = csv.writer(f, quoting=csv.QUOTE_ALL, lineterminator='\n')
         for todo in res:
             csvw.writerow([id, username, todo['completed'], todo['title']])
