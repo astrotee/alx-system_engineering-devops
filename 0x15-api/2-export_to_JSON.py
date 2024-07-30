@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Export to CSV"""
+"""Export to JSON"""
 import json
 import requests as req
 import sys
